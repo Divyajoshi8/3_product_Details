@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Product Form</title>
+  </head>
+  <body>
+    <h1>Product Form</h1>
+    <form method="POST" action="/products">
+      <label for="productName">Product Name:</label>
+      <input type="text" id="productName" name="productName"><br><br>
+      <label for="totalPrice">Total Price:</label>
+      <input type="text" id="totalPrice" name="totalPrice"><br><br>
+      <label for="category">Category:</label>
+      <select id="category" name="category">
+        <option value="food">Food</option>
+        <option value="skincare">Skincare</option>
+        <option value="stationery">Stationery</option>
+      </select><br><br>
+      <button type="submit">Submit</button>
+    </form>
+
+    <h2>Food Category</h2>
+    <ul>
+      <% categoryList.filter(item => item.category === 'food').forEach(item => { %>
+        <li><%= item.productName %> - Rs <%= item.totalPrice %></li>
+      <% }); %>
+    </ul>
+
+    <h2>Skincare Category</h2>
+    <ul>
+      <% categoryList.filter(item => item.category === 'skincare').forEach(item => { %>
+        <li><%= item.productName %> - Rs <%= item.totalPrice %></li>
+      <% }); %>
+    </ul>
+
+    <h2>Stationery Category</h2>
+    <ul>
+      <% categoryList.filter(item => item.category === 'stationery').forEach(item => { %>
+        <li><%= item.productName %> - Rs <%= item.totalPrice %></li>
+      <% }); %>
+    </ul>
+  </body>
+</html>
